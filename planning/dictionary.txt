@@ -1,0 +1,445 @@
+================================================================================
+2017 COMMODITY FLOW SURVEY (CFS) PUBLIC USE FILE (PUF) - DATA DICTIONARY
+Source: 2017 CFS PUF Data Users Guide, U.S. Census Bureau / BTS (Aug 2020)
+Total records: 5,978,523 shipments
+================================================================================
+
+--------------------------------------------------------------------------------
+1. shipmt_id
+--------------------------------------------------------------------------------
+MEANING: Unique shipment identifier.
+VALUES:  0000001 - 5978523 (sequential integer, one per shipment record)
+
+--------------------------------------------------------------------------------
+2. orig_state
+--------------------------------------------------------------------------------
+MEANING: FIPS state code of the shipment's origin.
+VALUES:  (FIPS code = state)
+00 = State suppressed        01 = Alabama            02 = Alaska
+04 = Arizona                 05 = Arkansas           06 = California
+08 = Colorado                09 = Connecticut        10 = Delaware
+11 = District of Columbia    12 = Florida            13 = Georgia
+15 = Hawaii                  16 = Idaho              17 = Illinois
+18 = Indiana                 19 = Iowa               20 = Kansas
+21 = Kentucky                22 = Louisiana          23 = Maine
+24 = Maryland                25 = Massachusetts      26 = Michigan
+27 = Minnesota                28 = Mississippi        29 = Missouri
+30 = Montana                 31 = Nebraska           32 = Nevada
+33 = New Hampshire           34 = New Jersey         35 = New Mexico
+36 = New York                37 = North Carolina     38 = North Dakota
+39 = Ohio                    40 = Oklahoma           41 = Oregon
+42 = Pennsylvania            44 = Rhode Island       45 = South Carolina
+46 = South Dakota            47 = Tennessee          48 = Texas
+49 = Utah                    50 = Vermont            51 = Virginia
+53 = Washington              54 = West Virginia      55 = Wisconsin
+56 = Wyoming
+
+--------------------------------------------------------------------------------
+3. orig_ma
+--------------------------------------------------------------------------------
+MEANING: Metro area code of shipment origin (combines with orig_state to form
+         orig_cfs_area). 99999 = Remainder of state (no metro breakout).
+         00000 = metro area suppressed. See orig_cfs_area below for full names.
+VALUES:  See CFS AREA CODES section at the bottom of this file.
+
+--------------------------------------------------------------------------------
+4. orig_cfs_area
+--------------------------------------------------------------------------------
+MEANING: CFS Area of shipment origin. Format: "STATE-MA" (concatenation of
+         orig_state and orig_ma, e.g. "24-12580" = Baltimore, MD).
+VALUES:  See CFS AREA CODES section at the bottom of this file (132 valid areas).
+
+--------------------------------------------------------------------------------
+5. dest_state
+--------------------------------------------------------------------------------
+MEANING: FIPS state code of the shipment's destination (US only; CFS excludes
+         imports and shipments to/from US territories).
+VALUES:  Same code list as orig_state above.
+
+--------------------------------------------------------------------------------
+6. dest_ma
+--------------------------------------------------------------------------------
+MEANING: Metro area code of shipment destination (combines with dest_state to
+         form dest_cfs_area).
+VALUES:  See CFS AREA CODES section at the bottom of this file.
+
+--------------------------------------------------------------------------------
+7. dest_cfs_area
+--------------------------------------------------------------------------------
+MEANING: CFS Area of shipment destination. Format: "STATE-MA".
+VALUES:  See CFS AREA CODES section at the bottom of this file.
+
+--------------------------------------------------------------------------------
+8. naics
+--------------------------------------------------------------------------------
+MEANING: NAICS industry classification of the shipping establishment.
+VALUES:
+212    = Mining (except oil and gas)
+311    = Food manufacturing
+312    = Beverage and tobacco product manufacturing
+313    = Textile mills
+314    = Textile product mills
+315    = Apparel manufacturing
+316    = Leather and allied product manufacturing
+321    = Wood product manufacturing
+322    = Paper manufacturing
+323    = Printing and related support activities
+324    = Petroleum and coal products manufacturing
+325    = Chemical manufacturing
+326    = Plastics and rubber products manufacturing
+327    = Nonmetallic mineral product manufacturing
+331    = Primary metal manufacturing
+332    = Fabricated metal product manufacturing
+333    = Machinery manufacturing
+334    = Computer and electronic product manufacturing
+335    = Electrical equipment, appliance, and component manufacturing
+336    = Transportation equipment manufacturing
+337    = Furniture and related product manufacturing
+339    = Miscellaneous manufacturing
+4231   = Motor vehicle and parts merchant wholesalers
+4232   = Furniture and home furnishing merchant wholesalers
+4233   = Lumber and other construction materials merchant wholesalers
+4234   = Commercial equip. merchant wholesalers
+4235   = Metal and mineral (except petroleum) merchant wholesalers
+4236   = Electrical and electronic goods merchant wholesalers
+4237   = Hardware and plumbing merchant wholesalers
+4238   = Machinery, equipment, and supplies merchant wholesalers
+4239   = Miscellaneous durable goods merchant wholesalers
+4241   = Paper and paper product merchant wholesalers
+4242   = Drugs and druggists' sundries merchant wholesalers
+4243   = Apparel, piece goods, and notions merchant wholesalers
+4244   = Grocery and related product merchant wholesalers
+4245   = Farm product raw material merchant wholesalers
+4246   = Chemical and allied products merchant wholesalers
+4247   = Petroleum and petroleum products merchant wholesalers
+4248   = Beer, wine, and distilled alcoholic beverage merchant wholesalers
+4249   = Miscellaneous nondurable goods merchant wholesalers
+4541   = Electronic shopping and mail-order houses
+45431  = Fuel dealers
+4931   = Warehousing and storage (includes 484, Truck transportation)
+5111   = Newspaper, periodical, book, and directory publishers
+551114 = Corporate, subsidiary, and regional managing offices
+
+--------------------------------------------------------------------------------
+9. quarter
+--------------------------------------------------------------------------------
+MEANING: Quarter of 2017 in which the shipment occurred.
+VALUES:  1 = Q1   2 = Q2   3 = Q3   4 = Q4
+
+--------------------------------------------------------------------------------
+10. sctg
+--------------------------------------------------------------------------------
+MEANING: 2-digit SCTG (Standard Classification of Transported Goods) commodity
+         code. For some shipments the detailed code was collapsed to a "group"
+         range (e.g. "01-05") or fully suppressed ("00") to protect
+         confidentiality.
+VALUES:
+00 = Commodity code suppressed
+01 = Animals and Fish (live)
+02 = Cereal Grains (includes seed)
+03 = Agricultural Products (excl. Animal Feed, Cereal Grains, Forage Products)
+04 = Animal Feed, Eggs, Honey, and Other Products of Animal Origin
+05 = Meat, Poultry, Fish, Seafood, and Their Preparations
+06 = Milled Grain Products and Preparations, and Bakery Products
+07 = Other Prepared Foodstuffs, and Fats and Oils
+08 = Alcoholic Beverages and Denatured Alcohol
+09 = Tobacco Products
+10 = Monumental or Building Stone
+11 = Natural Sands
+12 = Gravel and Crushed Stone (excludes Dolomite and Slate)
+13 = Other Non-Metallic Minerals not elsewhere classified
+14 = Metallic Ores and Concentrates
+15 = Coal
+16 = Crude Petroleum
+17 = Gasoline, Aviation Turbine Fuel, and Ethanol
+18 = Fuel Oils (incl. Diesel, Bunker C, Biodiesel)
+19 = Other Coal and Petroleum Products, not elsewhere classified
+20 = Basic Chemicals
+21 = Pharmaceutical Products
+22 = Fertilizers
+23 = Other Chemical Products and Preparations
+24 = Plastics and Rubber
+25 = Logs and Other Wood in the Rough
+26 = Wood Products
+27 = Pulp, Newsprint, Paper, and Paperboard
+28 = Paper or Paperboard Articles
+29 = Printed Products
+30 = Textiles, Leather, and Articles of Textiles or Leather
+31 = Non-Metallic Mineral Products
+32 = Base Metal in Primary or Semi-Finished Forms and Finished Basic Shapes
+33 = Articles of Base Metal
+34 = Machinery
+35 = Electronic/Electrical Equipment, Components, and Office Equipment
+36 = Motorized and Other Vehicles (includes parts)
+37 = Transportation Equipment, not elsewhere classified
+38 = Precision Instruments and Apparatus
+39 = Furniture, Mattresses, Lamps, Lighting Fittings, Illuminated Signs
+40 = Miscellaneous Manufactured Products
+41 = Waste and Scrap
+43 = Mixed Freight
+99 = Missing Code (not used in published tables/PUF)
+GROUPED (collapsed) CODES:
+01-05 = Animals, Fish, Agricultural Products, Feed, Meat (grouped)
+06-09 = Milled Grains, Foodstuffs, Alcohol, Tobacco (grouped)
+10-14 = Minerals and Ores (grouped)
+15-19 = Coal and Petroleum Products (grouped)
+20-24 = Chemicals, Pharma, Fertilizers, Plastics (grouped)
+25-30 = Wood, Pulp, Paper, Printed, Textiles (grouped)
+31-34 = Non-Metallic Minerals, Base Metal, Machinery (grouped)
+35-38 = Electronics, Vehicles, Transport Equip, Instruments (grouped)
+39-43 = Furniture, Misc Manufactured, Waste, Mixed Freight (grouped)
+
+--------------------------------------------------------------------------------
+11. mode
+--------------------------------------------------------------------------------
+MEANING: Mode of transportation used for the shipment. Most shipments carry
+         the most detailed code (marked in the Users Guide as bold); some were
+         collapsed to a less detailed code to protect confidentiality.
+VALUES:
+00  = Mode suppressed
+02  = Single mode
+03  = Truck
+04  = For-hire truck
+05  = Company-owned truck
+06  = Rail
+07  = Water
+08  = Inland Water
+09  = Great Lakes
+10  = Deep Sea
+101 = Multiple Waterways
+11  = Air (includes truck and air)
+12  = Pipeline
+13  = Multiple mode
+14  = Parcel, USPS, or courier
+15  = Truck and rail
+16  = Truck and water
+17  = Rail and water
+18  = Other multiple mode
+19  = Other (single) mode
+20  = Non-parcel multiple mode (not in published CFS tables)
+
+--------------------------------------------------------------------------------
+12. shipmt_value
+--------------------------------------------------------------------------------
+MEANING: Value of the shipment, in dollars. Raw/unweighted per-shipment value
+         (rounded to nearest integer; noise-infused and top-coded for
+         confidentiality). Multiply by wgt_factor before summing to estimate
+         population totals.
+VALUES:  0 - 9,999,999,999 (numeric)
+
+--------------------------------------------------------------------------------
+13. shipmt_wght
+--------------------------------------------------------------------------------
+MEANING: Weight of the shipment, in pounds. Divide by 2000 to convert to tons.
+         Multiply by wgt_factor before summing to estimate population totals.
+VALUES:  0 - 9,999,999,999 (numeric)
+
+--------------------------------------------------------------------------------
+14. shipmt_dist_gc
+--------------------------------------------------------------------------------
+MEANING: Great circle (straight-line) distance between shipment origin and
+         destination, in miles.
+VALUES:  0 - 99,999 (numeric)
+
+--------------------------------------------------------------------------------
+15. shipmt_dist_routed
+--------------------------------------------------------------------------------
+MEANING: Routed (actual road/rail/etc. path) distance between shipment origin
+         and destination, in miles. Used (with wgt_factor and shipmt_wght) to
+         estimate ton-miles.
+VALUES:  0 - 99,999 (numeric)
+
+--------------------------------------------------------------------------------
+16. temp_cntl_yn
+--------------------------------------------------------------------------------
+MEANING: Whether the shipment used temperature control during transport.
+VALUES:  Y = Yes      N = No
+
+--------------------------------------------------------------------------------
+17. export_yn
+--------------------------------------------------------------------------------
+MEANING: Whether the shipment was an export.
+VALUES:  Y = Yes      N = No
+
+--------------------------------------------------------------------------------
+18. export_cntry
+--------------------------------------------------------------------------------
+MEANING: Final export destination region (only meaningful if export_yn = Y).
+VALUES:
+C = Canada
+M = Mexico
+E = Europe & Africa
+A = Asia & Oceania
+S = Rest of the Americas
+N = Not an export
+
+--------------------------------------------------------------------------------
+19. hazmat
+--------------------------------------------------------------------------------
+MEANING: Hazardous material (HAZMAT) classification of the shipment.
+VALUES:
+P = Class 3.0 Hazmat (flammable liquids)
+H = Other Hazmat
+N = Not Hazmat
+
+--------------------------------------------------------------------------------
+20. wgt_factor
+--------------------------------------------------------------------------------
+MEANING: Shipment tabulation weighting factor. Used to expand this one PUF
+         shipment record up to the total population of similar in-scope U.S.
+         shipments it represents in 2017. Also interpretable as an estimate of
+         the total number of shipments of this type. IMPORTANT: to estimate
+         totals (value, tonnage, ton-miles), multiply shipmt_value / shipmt_wght
+         by wgt_factor BEFORE summing across shipments - do not sum the raw
+         columns alone.
+VALUES:  0 - 786,400.0 (numeric, rounded to nearest tenth; truncated at
+         786,400 for confidentiality; a small number of records have
+         wgt_factor < 1)
+
+================================================================================
+CFS AREA CODES (orig_ma / dest_ma / orig_cfs_area / dest_cfs_area)
+Format: STATE-MA CODE = Area Name
+================================================================================
+36-104    = Albany-Schenectady, NY CFS Area
+13-122    = Atlanta-Athens-Clarke County-Sandy Springs, GA CFS Area
+01-142    = Birmingham-Hoover-Talladega, AL CFS Area
+25-148    = Boston-Worcester-Providence, MA-RI-NH-CT CFS Area (MA Part)
+33-148    = Boston-Worcester-Providence, MA-RI-NH-CT CFS Area (NH Part)
+44-148    = Boston-Worcester-Providence, MA-RI-NH-CT CFS Area (RI Part)
+36-160    = Buffalo-Cheektowaga, NY CFS Area
+37-172    = Charlotte-Concord, NC-SC CFS Area (NC Part)
+17-176    = Chicago-Naperville, IL-IN-WI CFS Area (IL Part)
+18-176    = Chicago-Naperville, IL-IN-WI CFS Area (IN Part)
+21-178    = Cincinnati-Wilmington-Maysville, OH-KY-IN CFS Area (KY Part)
+39-178    = Cincinnati-Wilmington-Maysville, OH-KY-IN CFS Area (OH Part)
+39-184    = Cleveland-Akron-Canton, OH CFS Area
+39-198    = Columbus-Marion-Zanesville, OH CFS Area
+48-204    = Corpus Christi-Kingsville-Alice, TX CFS Area
+48-206    = Dallas-Fort Worth, TX-OK CFS Area (TX Part)
+39-212    = Dayton-Springfield-Sidney, OH CFS Area
+08-216    = Denver-Aurora, CO CFS Area
+26-220    = Detroit-Warren-Ann Arbor, MI CFS Area
+48-238    = El Paso-Las Cruces, TX-NM CFS Area (TX Part)
+18-258    = Fort Wayne-Huntington-Auburn, IN CFS Area
+06-260    = Fresno-Madera, CA CFS Area
+26-266    = Grand Rapids-Wyoming-Muskegon, MI CFS Area
+37-268    = Greensboro-Winston-Salem-High Point, NC CFS Area
+45-273    = Greenville-Spartanburg-Anderson, SC CFS Area
+48-288    = Houston-The Woodlands, TX CFS Area
+18-294    = Indianapolis-Carmel-Muncie, IN CFS Area
+12-300    = Jacksonville-St. Marys-Palatka, FL-GA CFS Area (FL Part)
+20-312    = Kansas City-Overland Park-Kansas City, MO-KS CFS Area (KS Part)
+29-312    = Kansas City-Overland Park-Kansas City, MO-KS CFS Area (MO Part)
+47-314    = Knoxville-Morristown-Sevierville, TN CFS Area
+22-324    = Lake Charles-Jennings, LA CFS Area
+32-332    = Las Vegas-Henderson, NV-AZ CFS Area (NV Part)
+06-348    = Los Angeles-Long Beach, CA CFS Area
+21-350    = Louisville/Jefferson County-Elizabethtown-Madison, KY-IN CFS Area (KY Part)
+47-368    = Memphis-Forrest City, TN-MS-AR CFS Area (TN Part)
+12-370    = Miami-Fort Lauderdale-Port St. Lucie, FL CFS Area
+55-376    = Milwaukee-Racine-Waukesha, WI CFS Area
+27-378    = Minneapolis-St. Paul, MN-WI CFS Area (MN Part)
+01-380    = Mobile-Daphne-Fairhope, AL CFS Area
+47-400    = Nashville-Davidson-Murfreesboro, TN CFS Area
+22-406    = New Orleans-Metairie-Hammond, LA-MS CFS Area (LA Part)
+09-408    = New York-Newark, NY-NJ-CT-PA CFS Area (CT Part)
+34-408    = New York-Newark, NY-NJ-CT-PA CFS Area (NJ Part)
+36-408    = New York-Newark, NY-NJ-CT-PA CFS Area (NY Part)
+42-408    = New York-Newark, NY-NJ-CT-PA CFS Area (PA Part)
+40-416    = Oklahoma City-Shawnee, OK CFS Area
+31-420    = Omaha-Council Bluffs-Fremont, NE-IA CFS Area (NE Part)
+12-422    = Orlando-Deltona-Daytona Beach, FL CFS Area
+10-428    = Philadelphia-Reading-Camden, PA-NJ-DE-MD CFS Area (DE Part)
+34-428    = Philadelphia-Reading-Camden, PA-NJ-DE-MD CFS Area (NJ Part)
+42-428    = Philadelphia-Reading-Camden, PA-NJ-DE-MD CFS Area (PA Part)
+42-430    = Pittsburgh-New Castle-Weirton, PA-OH-WV CFS Area (PA Part)
+41-440    = Portland-Vancouver-Salem, OR-WA CFS Area (OR Part)
+53-440    = Portland-Vancouver-Salem, OR-WA CFS Area (WA Part)
+37-450    = Raleigh-Durham-Chapel Hill, NC CFS Area
+36-464    = Rochester-Batavia-Seneca Falls, NY CFS Area
+06-472    = Sacramento-Roseville, CA CFS Area
+17-476    = St. Louis-St. Charles-Farmington, MO-IL CFS Area (IL Part)
+29-476    = St. Louis-St. Charles-Farmington, MO-IL CFS Area (MO Part)
+49-482    = Salt Lake City-Provo-Orem, UT CFS Area
+06-488    = San Jose-San Francisco-Oakland, CA CFS Area
+13-496    = Savannah-Hinesville-Statesboro, GA CFS Area
+53-500    = Seattle-Tacoma, WA CFS Area
+04-536    = Tucson-Nogales, AZ CFS Area
+40-538    = Tulsa-Muskogee-Bartlesville, OK CFS Area
+51-545    = Virginia Beach-Norfolk, VA-NC CFS Area (VA Part)
+20-556    = Wichita-Arkansas City-Winfield, KS CFS Area
+48-12420  = Austin-Round Rock, TX CFS Area
+24-12580  = Baltimore-Columbia-Towson, MD CFS Area
+22-12940  = Baton Rouge, LA CFS Area
+48-13140  = Beaumont-Port Arthur, TX CFS Area
+45-16700  = Charleston-North Charleston, SC CFS Area
+09-25540  = Hartford-West Hartford-East Hartford, CT CFS Area
+48-29700  = Laredo, TX CFS Area
+04-38060  = Phoenix-Mesa-Scottsdale, AZ CFS Area
+51-40060  = Richmond, VA CFS Area
+48-41700  = San Antonio-New Braunfels, TX CFS Area
+06-41740  = San Diego-Carlsbad, CA CFS Area
+12-45300  = Tampa-St. Petersburg-Clearwater, FL CFS Area
+15-46520  = Urban Honolulu, HI CFS Area
+11-47900  = Washington-Arlington-Alexandria, DC-VA-MD-WV CFS Area (DC Part)
+24-47900  = Washington-Arlington-Alexandria, DC-VA-MD-WV CFS Area (MD Part)
+51-47900  = Washington-Arlington-Alexandria, DC-VA-MD-WV CFS Area (VA Part)
+01-99999  = Remainder of Alabama CFS Area
+02-99999  = Remainder of Alaska CFS Area
+04-99999  = Remainder of Arizona CFS Area
+05-99999  = Remainder of Arkansas CFS Area
+06-99999  = Remainder of California CFS Area
+08-99999  = Remainder of Colorado CFS Area
+09-99999  = Remainder of Connecticut CFS Area
+10-99999  = Remainder of Delaware CFS Area
+12-99999  = Remainder of Florida CFS Area
+13-99999  = Remainder of Georgia CFS Area
+15-99999  = Remainder of Hawaii CFS Area
+16-99999  = Remainder of Idaho CFS Area
+17-99999  = Remainder of Illinois CFS Area
+18-99999  = Remainder of Indiana CFS Area
+19-99999  = Remainder of Iowa CFS Area
+20-99999  = Remainder of Kansas CFS Area
+21-99999  = Remainder of Kentucky CFS Area
+22-99999  = Remainder of Louisiana CFS Area
+23-99999  = Remainder of Maine CFS Area
+24-99999  = Remainder of Maryland CFS Area
+25-99999  = Remainder of Massachusetts CFS Area
+26-99999  = Remainder of Michigan CFS Area
+27-99999  = Remainder of Minnesota CFS Area
+28-99999  = Remainder of Mississippi CFS Area
+29-99999  = Remainder of Missouri CFS Area
+30-99999  = Remainder of Montana CFS Area
+31-99999  = Remainder of Nebraska CFS Area
+32-99999  = Remainder of Nevada CFS Area
+33-99999  = Remainder of New Hampshire CFS Area
+35-99999  = Remainder of New Mexico CFS Area
+36-99999  = Remainder of New York CFS Area
+37-99999  = Remainder of North Carolina CFS Area
+38-99999  = Remainder of North Dakota CFS Area
+39-99999  = Remainder of Ohio CFS Area
+40-99999  = Remainder of Oklahoma CFS Area
+41-99999  = Remainder of Oregon CFS Area
+42-99999  = Remainder of Pennsylvania CFS Area
+45-99999  = Remainder of South Carolina CFS Area
+46-99999  = Remainder of South Dakota CFS Area
+47-99999  = Remainder of Tennessee CFS Area
+48-99999  = Remainder of Texas CFS Area
+49-99999  = Remainder of Utah CFS Area
+50-99999  = Remainder of Vermont CFS Area
+51-99999  = Remainder of Virginia CFS Area
+53-99999  = Remainder of Washington CFS Area
+54-99999  = Remainder of West Virginia CFS Area
+55-99999  = Remainder of Wisconsin CFS Area
+56-99999  = Remainder of Wyoming CFS Area
+
+SPECIAL ORIGIN-ONLY SUPPRESSION CODES:
+NN-00000  = Origin metro area suppressed (NN = valid orig_state code, area
+            unknown/withheld but state is known)
+00-00000  = Origin state and metro area both suppressed
+
+MA TYPE KEY (for reference): C = Combined Statistical Area (CSA) type,
+M = Metropolitan Statistical Area (MSA) type, R = Remainder-of-state type
+================================================================================
+END OF DICTIONARY
+================================================================================

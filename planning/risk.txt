@@ -1,0 +1,36 @@
+1. which regions are almost entirely dependent on a single mode for their outbound freight 
+2. if one cfs area or corridor got knocked offline how much of the country would feel it 
+
+
+Suggested Visualizations
+1. Diverging bar chart — value % vs. weight % per region (the core story)
+
+A horizontal bar chart per region+mode, with econ_val_dep_pct extending one direction and op_dep_pct extending the other (or paired bars side by side). Sort by the gap between them. This is the single most important chart in the project — it makes the value/weight divergence visually obvious without needing the reader to compare numbers in a table. Wyoming, New Hampshire, and Oklahoma should visually jump out as the widest gaps.
+
+2. Scatter plot — value_at_risk_pct_of_national vs. weight_at_risk_pct_of_national
+
+One point per region+mode, log scale on both axes if the spread is large. Regions in the top-right are dangerous by both measures. Regions far off the diagonal (like Wyoming, way up on the weight axis, near-zero on the value axis) are the interesting outliers — this plot visually explains why Wyoming matters even though it wouldn't show up in a "biggest dollar values" ranking. Consider sizing or coloring points by op_dep_pct (the dependence percentage itself) to add a third dimension.
+
+3. Choropleth (state or CFS-area) map — operational dependence
+
+A U.S. map shaded by op_dep_pct for each region's dominant mode, with the dominant mode itself shown via color hue (e.g., truck = blue, rail = orange, pipeline = green, water = teal) and shade intensity = dependence %. This immediately shows regional clustering — e.g., a Gulf Coast pipeline belt, a rail-heavy interior/energy belt (Wyoming, Montana, North Dakota), and a truck-dominant Northeast/Southeast. Good tool: Plotly choropleth or a simple GeoPandas plot if you have CFS-area boundary shapefiles; falls back to a state-level map if area-level boundaries aren't available.
+
+4. Treemap — national freight share by region, colored by value/weight gap
+
+Box size = nation_freight_pct (the region's share of national tonnage), color = the value/weight gap (op_dep_pct - econ_val_dep_pct or the ratio). This shows scale and risk type simultaneously — big boxes are nationally significant regions, box color tells you whether that region's risk is economic, operational, or balanced.
+
+5. Small multiples / faceted bar chart — mode composition per top-20 region
+
+For your top-20 highest-dependence regions, a stacked bar per region showing the full mode breakdown (not just the dominant mode), by weight. This shows what the "alternative" modes actually are — e.g., Oklahoma's stack would show for-hire truck, company-owned truck, rail, and truck-and-rail all visible together, making clear how much slack (or lack of it) each region actually has.
+
+6. (Stretch) Sankey / flow diagram — Wyoming rail corridors
+
+Since Wyoming rail was identified as a genuine chokepoint feeding dozens of Midwest destinations (Kansas City, Grand Rapids, St. Louis, etc. all in the 13–16% inbound range), a Sankey diagram from "Remainder of Wyoming (rail)" fanning out to its top 10–15 destination CFS areas, with flow width = corridor tonnage, would make the downstream reach of a single origin's mode failure viscerally clear — this is the "how much of the country would feel it" question made visual.
+
+Suggested Narrative Arc for a Writeup or Presentation
+Open with the question — what happens if one mode of freight transportation for a region disappears?
+Explain why value alone isn't enough — a quick example (Oklahoma or Wyoming) showing the value/weight mismatch.
+Reveal Wyoming as the headline case — the 214x value/weight gap, the 1.842% national tonnage exposure. This is your hook.
+Widen to the full top-20 — show the diverging bar chart, let the pattern (mostly truck-dependent Northeast/Southeast vs. Wyoming's rail outlier) speak for itself.
+Zoom into the map — show regional clustering of dependence by mode.
+Close with the downstream/network angle (if you build it out) — Wyoming rail's reach into dozens of Midwest destinations, making the "how m
